@@ -1,0 +1,98 @@
+[
+ {
+  "id": "food",
+  "title": "Где поесть",
+  "color": "#f7a21b",
+  "chip": true
+ },
+ {
+  "id": "clothes",
+  "title": "Гардероб",
+  "color": "#6d83e8",
+  "chip": true
+ },
+ {
+  "id": "health",
+  "title": "Здоровье",
+  "color": "#57c47f",
+  "chip": true
+ },
+ {
+  "id": "beauty",
+  "title": "Красота",
+  "color": "#f0617b",
+  "chip": true
+ },
+ {
+  "id": "grocery",
+  "title": "Супермаркеты",
+  "color": "#c9892f",
+  "chip": true
+ },
+ {
+  "id": "home",
+  "title": "Дом и ремонт",
+  "color": "#6fb3c2",
+  "chip": true
+ },
+ {
+  "id": "flowers",
+  "title": "Цветы",
+  "color": "#ee4d6a",
+  "chip": true
+ },
+ {
+  "id": "auto",
+  "title": "Авто",
+  "color": "#5fb7ee",
+  "chip": false
+ },
+ {
+  "id": "kids",
+  "title": "Детям",
+  "color": "#8fc95a",
+  "chip": false
+ },
+ {
+  "id": "pets",
+  "title": "Питомцам",
+  "color": "#e8a23d",
+  "chip": false
+ },
+ {
+  "id": "travel",
+  "title": "Путешествия",
+  "color": "#44c2c7",
+  "chip": false
+ },
+ {
+  "id": "sport",
+  "title": "Спорт",
+  "color": "#52c288",
+  "chip": false
+ },
+ {
+  "id": "tech",
+  "title": "Техника",
+  "color": "#2f7fd6",
+  "chip": false
+ },
+ {
+  "id": "jewelry",
+  "title": "Украшения",
+  "color": "#b79a78",
+  "chip": false
+ },
+ {
+  "id": "services",
+  "title": "Услуги",
+  "color": "#5ab8f5",
+  "chip": false
+ },
+ {
+  "id": "hobby",
+  "title": "Хобби и досуг",
+  "color": "#3a9df0",
+  "chip": false
+ }
+]

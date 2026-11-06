@@ -1,0 +1,220 @@
+/* pins.css — пины и кластеры. Размеры со скриншотов: кружок 30 pt, плашка 33 pt, чёрная обводка. */
+.mk {
+  --d: 30px;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  transition: opacity .16s ease;
+  cursor: pointer;
+}
+
+.mk.is-in { opacity: 1; }
+
+/* Кластер */
+.clu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: -1px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 1.5px #101218;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -.2px;
+}
+
+/* Пин: кружок стоит ровно на точке, плашка уходит вправо за ним */
+.pin {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.pin__logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform .18s cubic-bezier(.2, .8, .2, 1);
+}
+
+.pin__logo svg { width: 19px; height: 19px; }
+
+.mono {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: -.4px;
+  line-height: 1;
+}
+
+.mono--3 { font-size: 9.5px; letter-spacing: -.2px; }
+.mono--4, .mono--5 { font-size: 8.500px; letter-spacing: -.2px; }
+
+/* Текстовая часть: скрыта, пока пин не открыт */
+.pin__body, .pin__pct {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  height: 34px;
+  border-radius: 17px;
+  background: #000;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .16s ease;
+}
+
+.pin__body {
+  width: max-content;
+  min-width: 96px;
+  max-width: 178px;
+  padding: 0 14px 0 39px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+  mask-image: linear-gradient(to right, #000 88%, transparent);
+}
+
+.pin__body b {
+  font-size: 12.500px;
+  font-weight: 600;
+  line-height: 15px;
+  overflow: hidden;
+}
+
+.pin__body i {
+  font-style: normal;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--text-3);
+}
+
+.pin__pct {
+  width: 68px;
+  padding-left: 36px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Виды пина */
+.mk[data-tier='pill'] .pin__body { opacity: 1; }
+.mk[data-tier='mini'] .pin__pct { opacity: 1; }
+
+/* Точка: тот же пин, только тихий. Цель нажатия остаётся 30 pt */
+.mk[data-tier='dot'] .pin__logo {
+  transform: scale(.3333);
+  box-shadow: 0 0 0 3.500px rgba(0, 0, 0, .8);
+}
+
+.mk[data-tier='dot'] .pin__logo svg,
+.mk[data-tier='dot'] .pin__logo .mono { opacity: 0; }
+
+/* Выбранный пин */
+.mk.is-selected .pin__logo { transform: scale(1.1); box-shadow: 0 0 0 2px var(--yellow); }
+
+/* Я здесь */
+.user-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 7px rgba(65, 139, 248, .25);
+}
+
+/* Значок «+N»: остальные пины тайла */
+.mk--rest .clu {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  background: #1c1c1e;
+  box-shadow: 0 0 0 1.5px #5c6b85;
+  font-size: 11.5px;
+}
+
+/* Значок на лидере: в углу логотипа */
+.mk--attached { pointer-events: auto; }
+.mk--attached .clu {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  transform: translate(-12px, -12px);
+  background: var(--blue);
+  box-shadow: 0 0 0 1.5px #000;
+  font-size: 10px;
+}
+
+/* Веер */
+.fan { width: 0; height: 0; }
+
+.fan__bg {
+  position: absolute;
+  left: calc(var(--r) * -1);
+  top: calc(var(--r) * -1);
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border-radius: 50%;
+  background: rgba(16, 20, 28, .78);
+  transform: scale(.3);
+  opacity: 0;
+  transition: transform .22s cubic-bezier(.2, .8, .2, 1), opacity .18s ease;
+}
+
+.fan__lines {
+  position: absolute;
+  left: -200px;
+  top: -200px;
+  width: 400px;
+  height: 400px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.fan__lines line { stroke: rgba(255, 255, 255, .28); stroke-width: 1.5; }
+
+.fan__pin {
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  width: 30px;
+  height: 44px;
+  transform: translate(0, 0) scale(.4);
+  opacity: 0;
+  transition: transform .26s cubic-bezier(.2, .9, .3, 1.15), opacity .16s ease;
+}
+
+.fan__pin b {
+  position: absolute;
+  left: 50%;
+  top: 31px;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  border-radius: 7px;
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: 700;
+}
+
+.fan.is-open .fan__bg { transform: none; opacity: 1; }
+.fan.is-open .fan__lines { opacity: 1; }
+.fan.is-open .fan__pin { transform: translate(var(--x), var(--y)); opacity: 1; }
